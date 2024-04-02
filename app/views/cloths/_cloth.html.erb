@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <div id="<%= dom_id cloth %>">
+            <table class="table table-bordered">
+              <tr>
+                <td><strong><%= cloth.name %><strong></td>
+              </tr>
+              <tr>
+                <td><%= cloth.description %></td>
+              </tr>
+              <tr>
+                <td>$<%= cloth.cost %></td>
+              </tr>
+              <tr>
+                <td>
+                  <% location = cloth.location %> <!-- Assuming cloth has a location association -->
+                  <%= "#{location.city}, #{location.province}" if location %>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

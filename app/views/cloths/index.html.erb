@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Cloths</h1>
+
+<div id="cloths">
+  <% @cloths.each do |cloth| %>
+    <%= render cloth %>
+    <p>
+      <%= link_to "Show this cloth", cloth %>
+    </p>
+  <% end %>
+</div>
+
+<% if current_user && current_user.category == "seller" %>
+  <%= link_to "New cloth", new_cloth_path %>
+<% end %>

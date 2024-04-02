@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @cloth %>
+
+<div>
+  <%= link_to "Edit this cloth", edit_cloth_path(@cloth) %> |
+  <%= link_to "Back to cloths", cloths_path %>
+
+  <%= button_to "Destroy this cloth", @cloth, method: :delete %>
+</div>
+<table border="1">
+  <tr>
+    <th>Feedback</th>
+    <th>User</th>
+  </tr>
+    <%= render @cloth.feedbacks %>
+</table>
+<% unless current_user.category == 'seller' || @cloth.feedbacks.exists?(created_by: current_user.f_name) %>
+  <% puts "Current user category: #{current_user.category}" %>
+  <% puts "Feedbacks exists for current user: #{!@cloth.feedbacks.exists?(created_by: current_user.f_name)}" %>
+  <%= form_for([@cloth, @cloth.feedbacks.new]) do |form| %>
+    <div class="field">
+      <%= form.label :comment, style: "display:block" %>
+      <%= form.text_field :comment %>
+    </div>
+    <div class="action">
+      <%= form.submit "Add comment" %>
+    </div>
+  <% end %>
+<% end %>

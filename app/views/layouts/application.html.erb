@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ClothCartel</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header class="navbar navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">ClothCartel</a>
+      </div>
+    </header>
+    <%  if logged_in? %>
+    <div>
+      Logged in as <%= current_user.email %> |
+      <%= link_to 'logout', logout_path, method: :delete %>
+    </div>
+    <% end %>
+
+    <% flash.each do |key, value| %>
+      <p id= '<%= key %>'><%= value %></p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
