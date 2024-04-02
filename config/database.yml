@@ -1,22 +1,27 @@
 default: &default
   adapter: postgresql
-  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres  
-  password: LearnIt@1  
-  host: localhost
-  port: 5432
+  timeout: 5000
+  # adapter: postgresql
+  # encoding: unicode
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # username: postgres  
+  # password: LearnIt@1  
+  # host: localhost
+  # port: 5432
 
 development:
   <<: *default
-  database: clothcartel 
+  database: postgresql 
 
 test:
   <<: *default
-  database: clothcartel
+  database: test_postgres
 
 production:
   <<: *default
-  database: clothcartel
-  username: postgres  
-  password: <%= ENV["LearnIt@1"] %>  
+  database: daqe1o38p3n0i3
+  host: ec2-35-169-9-79.compute-1.amazonaws.com
+  username: zyhsphvbltvyjh  
+  password: <%= ENV["bb6a60718787f6f3f35475f1e3329c71e43fea78c1692fa5b4814c92e4722ff6"] %> 
+  port: 5432 
