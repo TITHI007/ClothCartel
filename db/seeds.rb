@@ -41,6 +41,26 @@ Location.create!(
   province: "Ontario"
 )
 
+Location.create!(
+    area: "University",
+  city: "Ottawa",
+  province: "Ontario"
+)
+Location.create!(
+    area: "University",
+  city: "Winnepeg",
+  province: "Manitoba"
+)
+Location.create!(
+    area: "University",
+  city: "Haliflax",
+  province: "Nova Scotia"
+)
+Location.create!(
+    area: "University",
+  city: "Vancouver",
+  province: "British Columbia"
+)
 
 
 # cloth=Cloth.all
@@ -54,8 +74,8 @@ Location.create!(
 # )
 
 Customer.create([
-                      { f_name: 'Adam', l_name: 'Doe', email: 'adam@example.com', password_digest: BCrypt::Password.create('ad@123'), category: 'user' },
-                      { f_name: 'Aiden', l_name: 'Smith', email: 'aiden@example.com', password_digest: BCrypt::Password.create('ai@123'),  category: 'admin' },
+                      { f_name: 'Riya', l_name: 'Doe', email: 'riya@example.com', password_digest: BCrypt::Password.create('ad@123'), category: 'user' },
+                      { f_name: 'Hiya', l_name: 'Smith', email: 'hiya@example.com', password_digest: BCrypt::Password.create('ai@123'),  category: 'admin' },
                     ])
 
 
