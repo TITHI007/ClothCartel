@@ -2,7 +2,7 @@ class FeedbacksController < ApplicationController
     before_action :set_cloth, only: [:create, :destroy]
     def create
         @cloths=@cloth.feedbacks.new(feedback_params)
-        @cloths.created_by = current_user.f_name
+        @cloths.created_by = current_user.id
         if @cloths.save
             redirect_to @cloth
         end

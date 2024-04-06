@@ -1,30 +1,43 @@
-<p style="color: green"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <p class="text-success"><%= notice %></p>
+      <%= render @cloth %>
+      <br/>
+      <div class="d-flex justify-content-center">
+        <% unless current_user.category == 'customer'%> 
+          <%= link_to "Edit this cloth", edit_cloth_path(@cloth), class: "btn btn-primary me-2" %>
+          <%= button_to "Destroy this cloth", @cloth, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger me-2" %>
+        <% end %>
+        <%= link_to "Back to cloths", cloths_path, class: "btn btn-secondary me-2" %>
+      </div>
+      <br/>
+      <% if @cloth.feedbacks.present? %>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Feedback</th>
+              <th>User</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @cloth.feedbacks %>
+          </tbody>
+        </table>
+      <% end %>
 
-<%= render @cloth %>
-
-<div>
-  <%= link_to "Edit this cloth", edit_cloth_path(@cloth) %> |
-  <%= link_to "Back to cloths", cloths_path %>
-
-  <%= button_to "Destroy this cloth", @cloth, method: :delete %>
+      <% unless current_user.category == 'seller' || @cloth.feedbacks.exists?(created_by: current_user.id) %>
+        <%= form_for([@cloth, @cloth.feedbacks.new], html: { class: "needs-validation" }) do |form| %>
+          <div class="form-group">
+            <%= form.label :comment, class: "d-block" %>
+            <%= form.text_field :comment, class: "form-control", required: true %>
+            <div class="invalid-feedback">Please enter comment.</div>
+          </div>
+          <div class="form-group">
+            <%= form.submit "Add comment", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
-<table border="1">
-  <tr>
-    <th>Feedback</th>
-    <th>User</th>
-  </tr>
-    <%= render @cloth.feedbacks %>
-</table>
-<% unless current_user.category == 'seller' || @cloth.feedbacks.exists?(created_by: current_user.f_name) %>
-  <% puts "Current user category: #{current_user.category}" %>
-  <% puts "Feedbacks exists for current user: #{!@cloth.feedbacks.exists?(created_by: current_user.f_name)}" %>
-  <%= form_for([@cloth, @cloth.feedbacks.new]) do |form| %>
-    <div class="field">
-      <%= form.label :comment, style: "display:block" %>
-      <%= form.text_field :comment %>
-    </div>
-    <div class="action">
-      <%= form.submit "Add comment" %>
-    </div>
-  <% end %>
-<% end %>

@@ -3,6 +3,7 @@
         <%= feedback.comment %>
     </td>
     <td>
-        <%= feedback.created_by %>
+        <% user = Customer.find_by(id: feedback.created_by) %>
+        <%= user.f_name if user %>
     </td>
 </tr>

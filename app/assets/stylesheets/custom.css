@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+  }
+  
+
+body{
+    background-color: rgb(239, 229, 236);
+ }
+
+.card {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+.table td {
+  font-size: 16px;
+}

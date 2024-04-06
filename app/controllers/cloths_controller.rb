@@ -24,7 +24,7 @@ class ClothsController < ApplicationController
   # POST /cloths or /cloths.json
   def create
     @cloth = Cloth.new(cloth_params)
-    @cloth.location_id =current_user.locations.sample.id
+    # @cloth.location_id =current_user.locations.sample.id
     respond_to do |format|
       if @cloth.save
         format.html { redirect_to cloth_url(@cloth), notice: "Cloth was successfully created." }
