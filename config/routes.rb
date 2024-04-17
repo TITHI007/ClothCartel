@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   namespace :api, default: {format: 'json'} do
     get 'cloths/search', to: 'cloths#search'
     resources :cloths
+    resources :feedbacks
   end
   # Defines the root path route ("/")
   # root "posts#index"
