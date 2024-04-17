@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/signup' => 'registrations#new', as: 'signup'
   get '/login' => 'sessions#new', as: 'login'
   get '/logout' => 'sessions#destroy', as: 'logout'
+  post '/api-keys', to: 'api_keys#create'
+  delete '/api-keys', to: 'api_keys#destroy'
+  get '/api-keys', to: 'api_keys#index'
   root to: 'cloths#index'
   resources :cloths do
     resources :feedbacks, only: [:create, :destroy]

@@ -32,7 +32,10 @@
           <%= form.label :location, class: "form-label" %>
           <%= form.collection_select :location_id, @locations, :id, :city, { prompt: "Select Location" }, class: "form-select" %>
         </div>
-
+        <div>
+          <%= form.label :image, style: "display: block" %>
+          <%= form.file_field :image %>
+        </div>
         <div class="mb-3">
           <%= form.submit class: "btn btn-primary" %>
         </div>

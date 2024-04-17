@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+    has_many :api_keys,as: :bearer
     has_secure_password
     has_and_belongs_to_many :locations
     has_many :cloths, through: :locations

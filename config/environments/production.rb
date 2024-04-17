@@ -5,6 +5,24 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
+  config.action_mailer.default_url_options = { host: 'https://lothcartel-89aa701f6f59.herokuapp.com'}
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = { from: 'no-reply@example.com' }
+  # Do not eager load code on boot.
+  config.eager_load = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:         'smtp.gmail.com',
+    port:            587,
+    domain:          'clothcartel-89aa701f6f59.herokuapp.com',
+    user_name:       'clothcartel17@gmail.com',
+    password:        'vlyy xkok yvbz rwfx',
+    authentication:  'plain',
+    enable_starttls: true,
+    open_timeout:    5,
+    read_timeout:    5 }
+
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers

@@ -8,8 +8,24 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.enable_reloading = true
 
+  config.action_mailer.default_url_options = { host: 'https://lothcartel-89aa701f6f59.herokuapp.com'}
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = { from: 'no-reply@example.com' }
   # Do not eager load code on boot.
   config.eager_load = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:         'smtp.gmail.com',
+    port:            587,
+    domain:          'clothcartel-89aa701f6f59.herokuapp.com',
+    user_name:       'clothcartel17@gmail.com',
+    password:        'vlyy xkok yvbz rwfx',
+    authentication:  'plain',
+    enable_starttls: true,
+    open_timeout:    5,
+    read_timeout:    5 }
+
 
   # Show full error reports.
   config.consider_all_requests_local = true
@@ -37,7 +53,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 

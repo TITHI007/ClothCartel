@@ -2,8 +2,12 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <p class="text-success"><%= notice %></p>
+      <% if @img != nil %>
+        <%= image_tag "data:image/png;base64,#{Base64.strict_encode64(@img)}", style: 'height:200px; width:200px;' %>
+      <% end %>
       <%= render @cloth %>
       <br/>
+
       <div class="d-flex justify-content-center">
         <% unless current_user.category == 'customer'%> 
           <%= link_to "Edit this cloth", edit_cloth_path(@cloth), class: "btn btn-primary me-2" %>
