@@ -2,9 +2,14 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-body">
-          <div id="<%= dom_id cloth %>">
-            <table class="table table-bordered">
+        <div class="card-body d-flex">
+          <% if @img.present? %>
+            <div class="me-3">
+              <%= image_tag "data:image/png;base64,#{Base64.strict_encode64(@img)}", style: 'max-width: 150px; max-height: 150px;',  class: "img-fluid" %>
+            </div>
+          <% end %>
+          <div class="flex-grow-1">
+            <table class="table table-bordered table-responsive">
               <tr>
                 <td><strong><%= cloth.name %><strong></td>
               </tr>
