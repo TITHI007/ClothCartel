@@ -20,7 +20,7 @@ Rails.application.configure do
     port:            587,
     domain:          'clothcartel-89aa701f6f59.herokuapp.com',
     user_name:       'clothcartel17@gmail.com',
-    password:        'vlyy xkok yvbz rwfx',
+    password:        'apppasword in google',
     authentication:  'plain',
     enable_starttls: true,
     open_timeout:    5,
